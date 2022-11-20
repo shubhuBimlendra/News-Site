@@ -26,4 +26,5 @@ Route::group(['prefix'=>'back'],function(){
     Route::get('/', [DashboardController::class, 'index']);
     Route::get('/category', [CategoryController::class, 'index']);
     Route::get('/category/create', [CategoryController::class, 'create']);
+    Route::get('/category/edit', [CategoryController::class, 'edit']);
 });
