@@ -6,6 +6,7 @@ use App\Http\Controllers\ListingPageController;
 use App\Http\Controllers\DetailsPageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
+//use App\Http\Controllers\DbController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,17 @@ Route::get('/', [HomePageController::class,'index']);
 Route::get('/listing', [ListingPageController::class,'index']);
 Route::get('/page-details', [DetailsPageController::class,'index']);
 
-Route::group(['prefix'=>'back'],function(){
+Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
     Route::get('/', [DashboardController::class, 'index']);
     Route::get('/category', [CategoryController::class, 'index']);
     Route::get('/category/create', [CategoryController::class, 'create']);
     Route::get('/category/edit', [CategoryController::class, 'edit']);
 });
+
+/*Route::get('/query', [DbController::class, 'index']);
+Route::get('/joining', [DbController::class, 'joining']);
+Route::get('/model', [DbController::class, 'model']);*/
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
