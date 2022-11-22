@@ -6,6 +6,7 @@ use App\Http\Controllers\ListingPageController;
 use App\Http\Controllers\DetailsPageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PermissionController;
 //use App\Http\Controllers\DbController;
 
 /*
@@ -28,6 +29,8 @@ Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
     Route::get('/category', [CategoryController::class, 'index']);
     Route::get('/category/create', [CategoryController::class, 'create']);
     Route::get('/category/edit', [CategoryController::class, 'edit']);
+    Route::get('/permission/create', [PermissionController::class, 'create']);
+    Route::post('/permission/store', [PermissionController::class, 'store']);
 });
 
 /*Route::get('/query', [DbController::class, 'index']);
