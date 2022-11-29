@@ -29,8 +29,12 @@ Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
     Route::get('/category', [CategoryController::class, 'index']);
     Route::get('/category/create', [CategoryController::class, 'create']);
     Route::get('/category/edit', [CategoryController::class, 'edit']);
+    Route::get('/permission', [PermissionController::class, 'index'])->name('admin.permission');
     Route::get('/permission/create', [PermissionController::class, 'create']);
     Route::post('/permission/store', [PermissionController::class, 'store']);
+    Route::get('/permission/edit/{id}', [PermissionController::class, 'edit'])->name('permission-edit');
+    Route::put('/permission/edit/{id}', [PermissionController::class, 'update'])->name('permission-update');
+    Route::delete('/permission/delete/{id}',[PermissionController::class, 'destroy'])->name('permission-delete');
 });
 
 /*Route::get('/query', [DbController::class, 'index']);
