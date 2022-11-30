@@ -17,6 +17,9 @@
                     <li class="active">
                         <a href="{{route('admin.permission')}}"> <i class="menu-icon fa fa-laptop"></i>Permission </a>
                     </li>
+                    <li class="active">
+                        <a href="{{route('admin.role')}}"> <i class="menu-icon fa fa-laptop"></i>Roles </a>
+                    </li>
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>

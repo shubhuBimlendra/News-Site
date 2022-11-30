@@ -7,6 +7,7 @@ use App\Http\Controllers\DetailsPageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\RoleController;
 //use App\Http\Controllers\DbController;
 
 /*
@@ -35,6 +36,12 @@ Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
     Route::get('/permission/edit/{id}', [PermissionController::class, 'edit'])->name('permission-edit');
     Route::put('/permission/edit/{id}', [PermissionController::class, 'update'])->name('permission-update');
     Route::delete('/permission/delete/{id}',[PermissionController::class, 'destroy'])->name('permission-delete');
+    Route::get('/roles', [RoleController::class, 'index'])->name('admin.role');
+    Route::get('/roles/create', [RoleController::class, 'create']);
+    Route::post('role/store', [RoleController::class, 'store']);
+    Route::get('/roles/edit/{id}', [RoleController::class, 'edit'])->name('role-edit');
+    Route::put('/roles/edit/{id}', [RoleController::class, 'update'])->name('role-update');
+    Route::delete('/roles/delete/{id}',[RoleController::class, 'destroy'])->name('role-delete');
 });
 
 /*Route::get('/query', [DbController::class, 'index']);
