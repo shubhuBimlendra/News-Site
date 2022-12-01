@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\AuthorController;
 //use App\Http\Controllers\DbController;
 
 /*
@@ -42,6 +43,9 @@ Route::group(['prefix'=>'back','middleware'=>'auth'],function(){
     Route::get('/roles/edit/{id}', [RoleController::class, 'edit'])->name('role-edit');
     Route::put('/roles/edit/{id}', [RoleController::class, 'update'])->name('role-update');
     Route::delete('/roles/delete/{id}',[RoleController::class, 'destroy'])->name('role-delete');
+    Route::get('/author', [AuthorController::class, 'index'])->name('admin.author');
+    Route::get('/author/create', [AuthorController::class, 'create']);
+    Route::post('/author/store', [AuthorController::class, 'store']);
 });
 
 /*Route::get('/query', [DbController::class, 'index']);
